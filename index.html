@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Feb 4 — Static Site</title>
+    <meta name="description" content="A small static HTML/CSS/JS site hosted on GitHub Pages." />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <header class="siteHeader">
+      <div class="container">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">◆</span>
+          <span class="brandText">Feb 4</span>
+        </div>
+
+        <nav class="nav">
+          <a class="navLink" href="./index.html">Home</a>
+          <a class="navLink" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1 class="heroTitle">Static site, zero backend</h1>
+        <p class="heroSubtitle">
+          This is a starter HTML/CSS/JS app designed to work well on GitHub Pages project hosting (served from
+          <code>/&lt;repo&gt;/</code>), using only relative asset paths.
+        </p>
+      </section>
+
+      <section class="grid" aria-label="Demo widgets">
+        <article class="card">
+          <h2 class="cardTitle">Theme toggle</h2>
+          <p class="cardBody">A tiny UI interaction saved to your browser.</p>
+          <button id="themeToggle" class="button" type="button">Toggle theme</button>
+        </article>
+
+        <article class="card">
+          <h2 class="cardTitle">Counter</h2>
+          <p class="cardBody">
+            Count: <span id="countValue" class="mono">0</span>
+          </p>
+          <div class="row">
+            <button id="decrement" class="button buttonSecondary" type="button">-1</button>
+            <button id="increment" class="button" type="button">+1</button>
+            <button id="reset" class="button buttonTertiary" type="button">Reset</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 class="cardTitle">Status</h2>
+          <p class="cardBody">
+            Loaded at: <span id="loadedAt" class="mono">—</span>
+          </p>
+          <p class="cardBody small subtle" id="hostingHint"></p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footerInner">
+        <span>© <span id="year"></span> Static site</span>
+        <span class="subtle">Hosted on GitHub Pages</span>
+      </div>
+    </footer>
+  </body>
+</html>
