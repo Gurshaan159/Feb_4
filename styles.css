@@ -9,7 +9,7 @@
   --accent: #7c5cff;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
   --radius: 16px;
-  --max: 980px;
+  --max: 1100px;
   --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
     "Segoe UI Emoji";
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -43,6 +43,7 @@ body {
   background: radial-gradient(1200px 700px at 20% -10%, rgba(124, 92, 255, 0.28), transparent 55%),
     radial-gradient(900px 500px at 90% 10%, rgba(66, 214, 255, 0.18), transparent 50%), var(--bg);
   color: var(--text);
+  position: relative;
 }
 
 code,
@@ -60,14 +61,13 @@ code,
   top: 0;
   backdrop-filter: blur(10px);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .siteHeader .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding: 22px 0;
 }
 
 .brand {
@@ -79,13 +79,8 @@ code,
 }
 
 .logo {
-  display: inline-grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(124, 92, 255, 0.7), rgba(66, 214, 255, 0.5));
-  box-shadow: var(--shadow);
+  display: inline;
+  background: none;
 }
 
 .nav {
@@ -97,14 +92,10 @@ code,
   color: var(--muted);
   text-decoration: none;
   padding: 8px 10px;
-  border-radius: 12px;
-  border: 1px solid transparent;
 }
 
 .navLink:hover {
   color: var(--text);
-  border-color: var(--panelBorder);
-  background: var(--panel);
 }
 
 .hero {
@@ -112,7 +103,7 @@ code,
 }
 
 .heroTitle {
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(34px, 5vw, 64px);
   margin: 0 0 10px;
   letter-spacing: -0.6px;
 }
@@ -120,12 +111,13 @@ code,
 .heroSubtitle {
   margin: 0;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.6;
   max-width: 72ch;
+  font-size: clamp(18px, 2.3vw, 24px);
 }
 
 .centerStage {
-  padding: 42px 0 54px;
+  padding: 80px 0 96px;
   display: grid;
   place-items: center;
 }
@@ -152,11 +144,10 @@ code,
 
 .card {
   grid-column: span 12;
-  border-radius: var(--radius);
-  background: var(--panel);
-  border: 1px solid var(--panelBorder);
-  box-shadow: var(--shadow);
-  padding: 18px 18px 16px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 @media (min-width: 820px) {
@@ -174,7 +165,8 @@ code,
 .cardBody {
   margin: 0 0 12px;
   color: var(--muted);
-  line-height: 1.45;
+  line-height: 1.6;
+  font-size: clamp(18px, 2vw, 22px);
 }
 
 .small {
@@ -187,24 +179,25 @@ code,
 
 .row {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .button {
   appearance: none;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: none;
   background: linear-gradient(135deg, rgba(124, 92, 255, 0.75), rgba(255, 77, 166, 0.55));
   color: white;
   font-weight: 650;
-  padding: 10px 12px;
-  border-radius: 14px;
+  padding: 14px 22px;
+  border-radius: 999px;
   cursor: pointer;
   transition: transform 120ms ease, filter 120ms ease;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
 }
 
 .button:hover {
@@ -217,7 +210,7 @@ code,
 }
 
 .buttonSecondary {
-  background: var(--panel);
+  background: rgba(255, 255, 255, 0.12);
   color: var(--text);
 }
 
@@ -228,31 +221,31 @@ code,
 
 .choiceStage {
   position: relative;
-  margin-top: 18px;
-  height: 92px;
-  width: min(520px, 100%);
+  margin-top: 32px;
+  height: 140px;
+  width: min(620px, 100%);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 18px;
+  gap: 28px;
 }
 
 .choiceYes {
-  min-width: 140px;
+  min-width: 170px;
 }
 
 .choiceNo {
   position: absolute;
-  min-width: 140px;
+  min-width: 170px;
 }
 
 .proximityHeart {
   position: fixed;
   left: 50%;
-  bottom: 18px;
+  bottom: 28px;
   transform: translateX(-50%) scale(var(--heartScale, 1));
   transform-origin: center;
-  font-size: 34px;
+  font-size: 44px;
   line-height: 1;
   color: var(--red);
   text-shadow: 0 18px 60px rgba(255, 59, 92, 0.28), 0 12px 32px rgba(0, 0, 0, 0.35);
@@ -260,12 +253,13 @@ code,
   transition: transform 120ms ease;
   user-select: none;
   pointer-events: none;
+  z-index: 3;
 }
 
 .bigHeart {
-  font-size: 54px;
+  font-size: 68px;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   color: var(--red);
   text-shadow: 0 18px 60px rgba(255, 59, 92, 0.28), 0 12px 32px rgba(0, 0, 0, 0.35);
   animation: heartBob 1100ms ease-in-out infinite;
@@ -289,6 +283,7 @@ code,
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 2;
 }
 
 .confettiPiece {
@@ -352,8 +347,7 @@ code,
 }
 
 .footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 18px 0;
+  padding: 28px 0 40px;
 }
 
 .footerInner {

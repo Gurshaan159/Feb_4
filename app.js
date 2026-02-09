@@ -21,7 +21,8 @@
 
     if (!stage || !yesBtn || !noBtn || !heart) return;
 
-    const padding = 8;
+    const padding = 12;
+    noBtn.style.position = "absolute";
 
     const moveNoButton = () => {
       const stageRect = stage.getBoundingClientRect();
@@ -66,6 +67,16 @@
       if (e.pointerType === "touch") moveNoButton();
     });
 
+    stage.addEventListener(
+      "pointermove",
+      (e) => {
+        const r = noBtn.getBoundingClientRect();
+        const dist = Math.hypot(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2));
+        if (dist < 120) moveNoButton();
+      },
+      { passive: true }
+    );
+
     // Grow heart as cursor approaches "Yes".
     const updateHeartScale = (clientX, clientY) => {
       const r = yesBtn.getBoundingClientRect();
@@ -73,9 +84,9 @@
       const cy = r.top + r.height / 2;
       const dist = Math.hypot(clientX - cx, clientY - cy);
 
-      const maxDist = Math.max(window.innerWidth, window.innerHeight) * 0.75;
+      const maxDist = Math.max(window.innerWidth, window.innerHeight) * 0.7;
       const t = 1 - clamp(dist / maxDist, 0, 1);
-      const scale = 1 + t * 1.6; // 1.0 → 2.6
+      const scale = 1 + t * 2.1; // 1.0 → 3.1
 
       heart.style.setProperty("--heartScale", String(scale.toFixed(3)));
     };
@@ -92,11 +103,14 @@
   }
 
   function initYesPage() {
-    if (prefersReducedMotion) return;
-
     const confettiLayer = $("confettiLayer");
     const heartsLayer = $("heartsLayer");
     if (!confettiLayer || !heartsLayer) return;
+
+    if (prefersReducedMotion) {
+      addStaticHearts(heartsLayer, 8);
+      return;
+    }
 
     spawnConfetti(confettiLayer, 90);
     startFloatingHearts(heartsLayer);
@@ -171,5 +185,19 @@
 
     // Keep a gentle background stream.
     window.setInterval(makeHeart, 520);
+  }
+
+  function addStaticHearts(layer, count) {
+    for (let i = 0; i < count; i += 1) {
+      const h = document.createElement("div");
+      h.className = "floatHeart";
+      h.textContent = "❤";
+      h.style.setProperty("--x", String(10 + Math.random() * 80));
+      h.style.setProperty("--s", String(18 + Math.random() * 18));
+      h.style.opacity = "0.65";
+      h.style.transform = "translateY(0)";
+      h.style.animation = "none";
+      layer.appendChild(h);
+    }
   }
 })();
