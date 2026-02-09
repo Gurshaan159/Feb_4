@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>For Johanny</title>
+    <title>Yay!</title>
     <meta name="description" content="A small static HTML/CSS/JS Valentine site hosted on GitHub Pages." />
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./app.js"></script>
   </head>
-  <body data-page="page1">
+  <body data-page="yes">
     <header class="siteHeader">
       <div class="container">
         <div class="brand">
@@ -17,25 +17,29 @@
         </div>
 
         <nav class="nav">
-          <a class="navLink" href="./index.html" aria-current="page">Start</a>
+          <a class="navLink" href="./index.html">Start</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
-      <section class="centerStage" aria-label="Message">
+      <section class="centerStage" aria-label="Thank you">
         <article class="card cardCenter">
-          <h1 class="heroTitle">Hi Johanny,</h1>
+          <div class="bigHeart" aria-hidden="true">❤</div>
+          <h1 class="heroTitle">Yay!</h1>
           <p class="heroSubtitle">
-            There is something I wanted to ask you.
+            A big thank you for being my Valentine.
           </p>
 
           <div class="row rowCenter">
-            <a class="button" href="./page2.html">Next</a>
+            <a class="button buttonSecondary" href="./index.html">Replay</a>
           </div>
         </article>
       </section>
     </main>
+
+    <div id="confettiLayer" class="confettiLayer" aria-hidden="true"></div>
+    <div id="heartsLayer" class="heartsLayer" aria-hidden="true"></div>
 
     <footer class="footer">
       <div class="container footerInner">

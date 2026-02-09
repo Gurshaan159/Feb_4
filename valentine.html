@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>For Johanny</title>
+    <title>Will you be my Valentine?</title>
     <meta name="description" content="A small static HTML/CSS/JS Valentine site hosted on GitHub Pages." />
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./app.js"></script>
   </head>
-  <body data-page="page1">
+  <body data-page="valentine">
     <header class="siteHeader">
       <div class="container">
         <div class="brand">
@@ -17,25 +17,30 @@
         </div>
 
         <nav class="nav">
-          <a class="navLink" href="./index.html" aria-current="page">Start</a>
+          <a class="navLink" href="./index.html">Start</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
-      <section class="centerStage" aria-label="Message">
+      <section class="centerStage" aria-label="The question">
         <article class="card cardCenter">
-          <h1 class="heroTitle">Hi Johanny,</h1>
-          <p class="heroSubtitle">
-            There is something I wanted to ask you.
+          <h1 class="heroTitle">So will you be my Valentine?</h1>
+          <p class="heroSubtitle subtle">
+            (Choose carefully.)
           </p>
 
-          <div class="row rowCenter">
-            <a class="button" href="./page2.html">Next</a>
+          <div id="choiceStage" class="choiceStage" aria-label="Choices">
+            <a id="yesButton" class="button choiceYes" href="./yes.html">Yes</a>
+            <button id="noButton" class="button buttonSecondary choiceNo" type="button">No</button>
           </div>
+
+          <p class="cardBody small subtle centerText" id="tinyHint" aria-live="polite"></p>
         </article>
       </section>
     </main>
+
+    <div id="proximityHeart" class="proximityHeart" aria-hidden="true">❤</div>
 
     <footer class="footer">
       <div class="container footerInner">
