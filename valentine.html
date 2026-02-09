@@ -24,19 +24,22 @@
 
     <main class="container">
       <section class="centerStage" aria-label="The question">
-        <article class="card cardCenter">
-          <h1 class="heroTitle">So will you be my Valentine?</h1>
-          <p class="heroSubtitle subtle">
-            (Choose carefully.)
-          </p>
-
-          <div id="choiceStage" class="choiceStage" aria-label="Choices">
-            <a id="yesButton" class="button choiceYes" href="./yes.html">Yes</a>
-            <button id="noButton" class="button buttonSecondary choiceNo" type="button">No</button>
+        <div class="pageLayout">
+          <div class="pageText">
+            <h1 class="heroTitle">So will you be my Valentine?</h1>
+            <p class="heroSubtitle subtle">
+              (Choose carefully.)
+            </p>
           </div>
 
-          <p class="cardBody small subtle centerText" id="tinyHint" aria-live="polite"></p>
-        </article>
+          <div>
+            <div id="choiceStage" class="choiceStage" aria-label="Choices">
+              <a id="yesButton" class="button choiceYes" href="./yes.html">Yes</a>
+              <button id="noButton" class="button buttonSecondary choiceNo" type="button">No</button>
+            </div>
+            <p class="cardBody small subtle centerText" id="tinyHint" aria-live="polite"></p>
+          </div>
+        </div>
       </section>
     </main>
 
