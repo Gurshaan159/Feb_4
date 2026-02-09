@@ -242,9 +242,9 @@ code,
   width: min(620px, 100%);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 28px;
-  margin-left: auto;
+  margin-left: 0;
 }
 
 .choiceYes {
